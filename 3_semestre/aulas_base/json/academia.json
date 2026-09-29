@@ -1,0 +1,57 @@
+    {
+    "academia": "FitLife Training Center",
+
+    "localizacao": {
+        "endereco": "Av. Brasil, 505",
+        "cidade": "Araçatuba",
+        "estado": "SP"
+    },
+
+    "planos": [
+        { "nome": "Mensal", "valor": 120, "acesso": "Básico" },
+        { "nome": "Trimestral", "valor": 300, "acesso": "Intermediário" },
+        { "nome": "Anual", "valor": 900, "acesso": "Premium" }
+    ],
+
+    "alunos": [
+        {
+        "nome": "Ana Souza",
+        "idade": 22,
+        "plano": "Mensal",
+        "treino": {
+            "dias": ["Segunda", "Quarta", "Sexta"],
+            "foco": "Hipertrofia",
+            "exercicios": [
+            { "nome": "Supino Reto", "series": 4, "reps": 10 },
+            { "nome": "Agachamento Livre", "series": 4, "reps": 12 }
+            ]
+        }
+        },
+        {
+        "nome": "Carlos Almeida",
+        "idade": 28,
+        "plano": "Anual",
+        "treino": {
+            "dias": ["Terça", "Quinta"],
+            "foco": "Resistência",
+            "exercicios": [
+            { "nome": "Corrida", "series": 1, "reps": 20 },
+            { "nome": "Puxada Frontal", "series": 3, "reps": 12 }
+            ]
+        }
+        }
+    ],
+
+    "professores": [
+        {
+        "nome": "Marcos Pereira",
+        "especialidade": "Musculação",
+        "avaliacoes": [5, 4, 5]
+        },
+        {
+        "nome": "Beatriz Ramos",
+        "especialidade": "Funcional",
+        "avaliacoes": [4, 4, 5]
+        }
+    ]
+    }

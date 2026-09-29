@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranking de Jogadores</title>
+  <style>
+    :root {
+      --bg:#f6f7fb; --card:#fff; --muted:#6b7280; --primary:#10b981; --primary-dark:#059669;
+      --warning:#f59e0b; --shadow:0 8px 24px rgba(0,0,0,.06); --radius:12px;
+    }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; background:var(--bg); color:#111827; }
+    .wrap { max-width: 920px; margin: 40px auto; padding: 0 16px; }
+    .card { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; }
+    h1 { text-align:center; margin:8px 0 24px; }
+    table { width:100%; border-collapse: collapse; margin-bottom: 24px; }
+    th, td { padding: 12px; text-align:left; border-bottom: 1px solid #e5e7eb; }
+    th { background:#f3f4f6; }
+    .rank { width:60px; text-align:center; }
+    .nivel { font-size:12px; padding:4px 8px; border-radius:999px; background:#e5e7eb; color:#374151; }
+    .nivel.inic { background:#dbeafe; color:#1e40af; }
+    .nivel.int { background:#d1fae5; color:#065f46; }
+    .nivel.ava { background:#fee2e2; color:#991b1b; }
+    .erro { background:#fee2e2; border:1px solid #fecaca; color:#991b1b; padding:10px 12px; margin-bottom: 12px; border-radius: 8px; }
+    .row { display:grid; grid-template-columns: 1.2fr 0.8fr 0.5fr 120px; gap: 8px; }
+    input, button { padding: 12px; border-radius: 8px; border:1px solid #e5e7eb; }
+    button, .btn { background: var(--primary); color:white; border:none; cursor:pointer; }
+    button:hover { background: var(--primary-dark); }
+    .btn-add { width: 100%; }
+    .btn-10 { background: var(--warning); }
+    .footer { text-align:center; margin-top: 12px; }
+    a.link { color:#2563eb; text-decoration:none; }
+    a.link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Ranking de Jogadores</h1>
+
+
+
+      <table>
+        <thead>
+          <tr>
+            <th class="rank">#</th>
+            <th>Jogador</th>
+            <th>Pontuação</th>
+            <th>Nível</th>
+            <th style="width:160px;">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (jogadores.length === 0) { %>
+            <tr><td colspan="5" class="muted">Nenhum jogador cadastrado.</td></tr>
+          <% } %>
+          <% jogadores.forEach((j, idx) => { %>
+            <tr>
+              <td class="rank"><%= idx + 1 %></td>
+              <td><strong><%= j.nome %></strong></td>
+              <td><%= j.pontuacao %></td>
+              
+              <td>
+                <form action="/jogadores/pontos" method="post" style="display:inline;">
+                  <input type="hidden" name="id" value="<%= j.id %>">
+                  <input type="hidden" name="valor" value="10">
+                  <button class="btn-10" type="submit">+10 pts</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <h2 style="text-align:center; margin: 8px 0 12px;">Adicionar Jogador</h2>
+      <form class="row" action="/jogadores" method="post">
+        <input type="text" name="nome" placeholder="Nome do jogador" required />
+        <input type="number" name="pontuacao" placeholder="Pontuação inicial (opcional)" min="0" />
+        <span></span>
+        <button class="btn-add" type="submit">Adicionar</button>
+      </form>
+
+      <div class="footer">
+        <a class="link" href="/">Voltar ao início</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

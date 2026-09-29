@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <body>
+
+    <h2>Doguinho</h2>
+
+    <input id="status" placeholder="Ex: 404">
+    <button onclick="carregarImagem()">Mostrar</button>
+
+    <img id="dog" />
+
+    <script>
+      async function carregarImagem() {
+        const status = document.getElementById('status').value;
+
+        const resposta = await fetch(`/dog/${status}`);
+        const dados = await resposta.json();
+
+        document.getElementById('dog').src = dados.url;
+      }
+    </script>
+
+  </body>
+</html>
