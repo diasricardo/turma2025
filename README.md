@@ -33,9 +33,3 @@ Este repositório tem como objetivo armazenar e compartilhar os códigos, projet
 - Outras tecnologias exploradas durante o curso
 
 ---
-
-<div align="center">
-
-⭐ Desenvolvido pela **Turma 2025**
-
-</div>
